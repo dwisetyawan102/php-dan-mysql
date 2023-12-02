@@ -33,7 +33,7 @@
       <td><?php echo $i++; ?></td>
       <td>
         <a href="">Ubah</a> |
-        <a href="">Hapus</a>
+        <a href="hapus.php?id=<?php echo $row["id"] ?>" onclick="return confirm('Yakin hapus');">Hapus</a>
       </td>
       <td><img src="img/<?php echo $row["gambar"] ?>" alt="" width="50"></td>
       <td><?php echo $row["nim"] ?></td>
