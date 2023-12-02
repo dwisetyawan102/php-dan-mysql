@@ -1,29 +1,22 @@
 <?php
-  // koneksi ke database
-  $conn = mysqli_connect("localhost", "root", "", "phpdasar");
+  require "functions.php";
 
   // cek apakah tombol sabmit sudah diklik atau belum
   if( isset($_POST["submit"]) ) {
 
-    // ambil data dari tiap elemen dalam form
-    $nim = $_POST["nim"];
-    $nama = $_POST["nama"];
-    $nama = $_POST["nama"];
-    $email = $_POST["email"];
-    $jurusan = $_POST["jurusan"];
-    $gambar = $_POST["gambar"];
-
-    // query insert data
-    $query = "INSERT INTO mahasiswa VALUES('', '$nama', '$nim', '$email', '$jurusan', '$gambar')";
-    mysqli_query($conn, $query);
-
-    // cek apakah data berhasil ditambahkan atau tidak
-    if( mysqli_affected_rows($conn) > 0 ) {
-      echo "Data berhasil ditambahkan!";
+    if( tambah($_POST) > 0 ) {
+      echo "
+        <script>
+          alert('Berhasil tambah data');
+          document.location.href = 'index.php';
+        </script>
+      ";
     } else {
-      echo "Data gagal ditambahkan";
-      echo "<br>";
-      echo mysqli_error($conn);
+      echo "
+        <script>
+          alert('Gagal tambah data');
+        </script>
+      ";
     }
   }
 ?>
@@ -43,23 +36,23 @@
     <ul>
       <li>
         <label for="nim">NIM : </label>
-        <input type="text" name="nim" id="nim">
+        <input type="text" name="nim" id="nim" require>
       </li>
       <li>
         <label for="nama">Nama : </label>
-        <input type="text" name="nama" id="nama">
+        <input type="text" name="nama" id="nama" require>
       </li>
       <li>
         <label for="email">Email : </label>
-        <input type="text" name="email" id="email">
+        <input type="text" name="email" id="email" require>
       </li>
       <li>
         <label for="jurusan">Jurusan : </label>
-        <input type="text" name="jurusan" id="jurusan">
+        <input type="text" name="jurusan" id="jurusan" require>
       </li>
       <li>
         <label for="gambar">Gambar : </label>
-        <input type="text" name="gambar" id="gambar">
+        <input type="text" name="gambar" id="gambar" require>
       </li>
       <li>
         <button type="submit" name="submit">Tambah data!</button>
