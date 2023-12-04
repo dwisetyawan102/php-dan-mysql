@@ -32,7 +32,7 @@
     <tr>
       <td><?php echo $i++; ?></td>
       <td>
-        <a href="">Ubah</a> |
+        <a href="ubah.php?id=<?php echo $row["id"] ?>">Ubah</a> |
         <a href="hapus.php?id=<?php echo $row["id"] ?>" onclick="return confirm('Yakin hapus');">Hapus</a>
       </td>
       <td><img src="img/<?php echo $row["gambar"] ?>" alt="" width="50"></td>
@@ -41,7 +41,7 @@
       <td><?php echo $row["email"] ?></td>
       <td><?php echo $row["jurusan"] ?></td>
     </tr>
-    <?php endforeach; ?>
+    <?php endforeach; ?> 
   </table>
 
 </body>
