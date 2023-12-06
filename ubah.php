@@ -9,7 +9,6 @@
 
   // cek apakah tombol sabmit sudah diklik atau belum
   if( isset($_POST["submit"]) ) {
-    var_dump($_POST);
     if( ubah($_POST) > 0 ) {
       echo "
         <script>
@@ -38,8 +37,9 @@
   
   <h1>Ubah data mahasiswa</h1>
 
-  <form action="" method="post">
+  <form action="" method="post" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?php echo $mhs["id"] ?>">
+    <input type="hidden" name="gambarLama" value="<?php echo $mhs["gambar"] ?>">  
     <ul>
       <li>
         <label for="nim">NIM : </label>
@@ -58,8 +58,9 @@
         <input type="text" name="jurusan" id="jurusan" value="<?php echo $mhs["jurusan"] ?>" require>
       </li>
       <li>
-        <label for="gambar">Gambar : </label>
-        <input type="text" name="gambar" id="gambar" value="<?php echo $mhs["gambar"] ?>" require>
+        <label for="gambar">Gambar : </label> <br>
+        <img src="img/<?php echo $mhs["gambar"] ?>" alt="" width="40"> <br>
+        <input type="file" name="gambar" id="gambar">
       </li>
       <li>
         <button type="submit" name="submit">Ubah data!</button>

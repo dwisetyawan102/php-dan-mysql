@@ -3,7 +3,7 @@
 
   // cek apakah tombol sabmit sudah diklik atau belum
   if( isset($_POST["submit"]) ) {
-
+    
     if( tambah($_POST) > 0 ) {
       echo "
         <script>
@@ -32,7 +32,7 @@
   
   <h1>Tambah data mahasiswa</h1>
 
-  <form action="" method="post">
+  <form action="" method="post" enctype="multipart/form-data">
     <ul>
       <li>
         <label for="nim">NIM : </label>
@@ -52,7 +52,7 @@
       </li>
       <li>
         <label for="gambar">Gambar : </label>
-        <input type="text" name="gambar" id="gambar" require>
+        <input type="file" name="gambar" id="gambar" require>
       </li>
       <li>
         <button type="submit" name="submit">Tambah data!</button>
