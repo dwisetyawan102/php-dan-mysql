@@ -43,19 +43,19 @@
     <ul>
       <li>
         <label for="nim">NIM : </label>
-        <input type="text" name="nim" id="nim" value="<?php echo $mhs["nim"] ?>" require>
+        <input type="text" name="nim" id="nim" value="<?php echo $mhs["nim"] ?>" required>
       </li>
       <li>
         <label for="nama">Nama : </label>
-        <input type="text" name="nama" id="nama" value="<?php echo $mhs["nama"] ?>" require>
+        <input type="text" name="nama" id="nama" value="<?php echo $mhs["nama"] ?>" required>
       </li>
       <li>
         <label for="email">Email : </label>
-        <input type="text" name="email" id="email" value="<?php echo $mhs["email"] ?>" require>
+        <input type="text" name="email" id="email" value="<?php echo $mhs["email"] ?>" required>
       </li>
       <li>
         <label for="jurusan">Jurusan : </label>
-        <input type="text" name="jurusan" id="jurusan" value="<?php echo $mhs["jurusan"] ?>" require>
+        <input type="text" name="jurusan" id="jurusan" value="<?php echo $mhs["jurusan"] ?>" required>
       </li>
       <li>
         <label for="gambar">Gambar : </label> <br>
