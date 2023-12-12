@@ -1,4 +1,12 @@
 <?php
+  session_start(); //gunakan method ini setiap kali menggunakan session
+
+  // mengecek apakah tidak ada session login di halaman ini
+  if( !isset($_SESSION["login"]) ) {
+    header("Location: login.php");
+    exit;
+  }
+
   require "functions.php";
 
   // ambil data di URL
