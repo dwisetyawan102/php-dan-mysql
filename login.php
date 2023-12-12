@@ -1,6 +1,13 @@
 <?php 
   session_start(); //gunakan method ini setiap kali menggunakan session
 
+  // cek cookie
+  if( isset($_COOKIE["login"]) ) {
+    if( $_COOKIE["login"] == "true" ) {
+      $_SESSION["login"] = true;
+    }
+  }
+
   // mengecek apakah ada session login di halaman ini
   if( isset($_SESSION["login"]) ) {
     header("Location: index.php");
@@ -22,6 +29,12 @@
       if( password_verify($password, $row["password"]) ) {
         // set session
         $_SESSION["login"] = true;
+        
+        // cek remember me
+        if( isset($_POST["remember"]) ) {
+          // set cookie
+          setcookie("login", "true", time() + 60);
+        }
 
         header("Location: index.php");
         exit;
@@ -55,6 +68,10 @@
       <li>
         <label for="password">Password :</label>
         <input type="password" name="password" id="password">
+      </li>
+      <li>
+        <input type="checkbox" name="remember" id="remember">
+        <label for="remember">Remember me</label>
       </li>
       <li>
         <button type="submit" name="login">Login</button>
