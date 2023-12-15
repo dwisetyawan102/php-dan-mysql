@@ -1,4 +1,4 @@
-<?php 
+<?php
   session_start(); //gunakan method ini setiap kali menggunakan session
 
   // mengecek apakah tidak ada session login di halaman ini
@@ -42,7 +42,7 @@
 </head>
 <body>
   
-  <a href="logout.php">Logout</a>
+  <a href="logout.php">Logout</a> | <a href="cetak.php" target="_blank">Cetak</a>
 
   <h1>Daftar Mahasiswa</h1>
 
